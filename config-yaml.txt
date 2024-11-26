@@ -1,0 +1,46 @@
+# config/config.yaml
+model:
+  embedding_dim: 128
+  num_heads: 4
+  dropout_rate: 0.3
+  learning_rate: 0.001
+  hidden_layers: [256, 128, 64]
+  activation: "relu"
+  
+training:
+  batch_size: 256
+  epochs: 100
+  early_stopping_patience: 5
+  validation_split: 0.2
+  shuffle: true
+  
+inference:
+  batch_size: 512
+  num_threads: 4
+  cache_size: 1000
+  timeout: 30
+
+optimization:
+  price_update_frequency: 24  # hours
+  min_data_points: 1000
+  max_price_change: 0.2
+  confidence_threshold: 0.95
+
+notification:
+  max_daily_notifications: 5
+  quiet_hours: [23, 7]  # 11 PM to 7 AM
+  minimum_interval: 4   # hours
+
+monitoring:
+  log_level: "INFO"
+  metrics_update_frequency: 300  # seconds
+  alert_thresholds:
+    cpu_usage: 0.9
+    memory_usage: 0.85
+    error_rate: 0.01
+
+security:
+  encryption_algorithm: "AES-256"
+  token_expiry: 3600  # seconds
+  max_failed_attempts: 3
+  lockout_duration: 900  # seconds
